@@ -189,7 +189,7 @@ def inference_on_dataset(
                         f"Total: {total_seconds_per_iter:.4f} s/iter. "
                         f"ETA={eta}"
                     ),
-                    n=30,
+                    n=60,
                 )
             start_data_time = time.perf_counter()
         dict.get(callbacks or {}, "on_end", lambda: None)()
