@@ -12,6 +12,7 @@ import time
 import warnings
 from collections import Counter
 import torch
+import numpy as np
 from fvcore.common.checkpoint import Checkpointer
 from fvcore.common.checkpoint import PeriodicCheckpointer as _PeriodicCheckpointer
 from fvcore.common.param_scheduler import ParamScheduler
@@ -723,7 +724,7 @@ class LossEvalHook(HookBase):
                     "Loss on Validation  done {}/{}. {:.4f} s / img. ETA={}".format(
                         idx + 1, total, seconds_per_img, str(eta)
                     ),
-                    n=5,
+                    n=60,
                 )
             loss_batch = self._get_loss(inputs)
             losses.append(loss_batch)
